@@ -1,11 +1,11 @@
-class WheatherForecastModel {
+class WeatherForecastModel {
   City? city;
   String? cod;
   double? message;
   int? cnt;
   List<WeatherList>? list;
 
-  WheatherForecastModel({
+  WeatherForecastModel({
     this.city,
     this.cod,
     this.message,
@@ -13,7 +13,7 @@ class WheatherForecastModel {
     this.list,
   });
 
-  WheatherForecastModel.fromJson(Map<String, dynamic> json) {
+  WeatherForecastModel.fromJson(Map<String, dynamic> json) {
     city = json['city'] != null ? new City.fromJson(json['city']) : null;
     cod = json['cod'];
     message = json['message'].toDouble();
