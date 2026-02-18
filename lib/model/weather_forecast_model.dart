@@ -156,8 +156,8 @@ class WeatherList {
     gust = json['gust'].toDouble();
     clouds = json['clouds'];
     pop = json['pop'].toDouble();
-    rain = json['rain'].toDouble();
-    snow = json['snow'].toDouble();
+    rain = json['rain'];
+    snow = json['snow'];
   }
 
   Map<String, dynamic> toJson() {
