@@ -1,3 +1,5 @@
+import 'package:wheather_app/utilities/constants.dart';
+
 class WeatherForecastModel {
   City? city;
   String? cod;
@@ -184,6 +186,11 @@ class WeatherList {
     data['rain'] = this.rain;
     data['snow'] = this.snow;
     return data;
+  }
+
+  String getIconUrl() {
+    var icon = weather?[0].icon;
+    return '${Constants.WEATHER_IMAGES_URL}${icon ?? ''}.png';
   }
 }
 
