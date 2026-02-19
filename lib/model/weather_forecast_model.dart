@@ -108,7 +108,7 @@ class WeatherList {
   int? sunset;
   Temp? temp;
   FeelsLike? feelsLike;
-  int? pressure;
+  double? pressure;
   int? humidity;
   List<Weather>? weather;
   double? speed;
@@ -145,7 +145,7 @@ class WeatherList {
     feelsLike = json['feels_like'] != null
         ? new FeelsLike.fromJson(json['feels_like'])
         : null;
-    pressure = json['pressure'];
+    pressure = json['pressure'].toDouble();
     humidity = json['humidity'];
     if (json['weather'] != null) {
       weather = <Weather>[];
