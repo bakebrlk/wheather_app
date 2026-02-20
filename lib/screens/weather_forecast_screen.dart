@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:wheather_app/api/weather_api.dart';
 import 'package:wheather_app/model/weather_forecast_model.dart';
 import 'package:wheather_app/screens/city_screen.dart';
@@ -20,7 +19,7 @@ class WeatherForecastScreen extends StatefulWidget {
 
 class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
   late Future<WeatherForecastModel> forecastObject;
-  String _cityName = 'Shu';
+  late String _cityName;
 
   @override
   void initState() {
@@ -38,11 +37,15 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
         backgroundColor: Colors.black87,
         title: Text('Weather Map', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        leading: IconButton(onPressed: () {
-          setState(() {
-            forecastObject = WeatherApi().fetchWeatherForecast();
-          });
-        }, icon: Icon(Icons.my_location)),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            setState(() {
+              forecastObject = WeatherApi().fetchWeatherForecast();
+            });
+          },
+          icon: Icon(Icons.my_location),
+        ),
         actions: [
           IconButton(
             onPressed: () async {
@@ -83,7 +86,15 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
           child: FutureBuilder(
             future: forecastObject,
             builder: (context, snapshot) {
-              if (snapshot.hasData) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    'City not found \nPlease, enter correct city',
+                    style: TextStyle(fontSize: 25),
+                    textAlign: .center,
+                  ),
+                );
+              } else if (snapshot.hasData) {
                 return Column(
                   children: [
                     SizedBox(height: 50),
@@ -98,7 +109,7 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
                 );
               } else {
                 return Center(
-                  child: SpinKitDoubleBounce(color: Colors.black87, size: 100),
+                  child: CircularProgressIndicator(), // пока грузится
                 );
               }
             },
