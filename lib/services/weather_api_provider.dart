@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:wheather_app/utilities/constants.dart';
 import 'package:wheather_app/utilities/location.dart';
 
-class WeatherApi {
+class WeatherProvider {
   Future<WeatherForecastModel> fetchWeatherForecast({
     String cityName = '',
     bool isCity = false,

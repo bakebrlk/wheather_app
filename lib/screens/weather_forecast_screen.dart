@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:wheather_app/api/weather_api.dart';
+import 'package:wheather_app/services/weather_api_provider.dart';
 import 'package:wheather_app/model/weather_forecast_model.dart';
 import 'package:wheather_app/screens/city_screen.dart';
 import 'package:wheather_app/widgets/bottom_list_view.dart';
@@ -41,7 +41,7 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
         leading: IconButton(
           onPressed: () {
             setState(() {
-              forecastObject = WeatherApi().fetchWeatherForecast();
+              forecastObject = WeatherProvider().fetchWeatherForecast();
             });
           },
           icon: Icon(Icons.my_location),
@@ -61,7 +61,7 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
               if (newCityName != null || newCityName != '') {
                 setState(() {
                   _cityName = newCityName;
-                  forecastObject = WeatherApi().fetchWeatherForecast(
+                  forecastObject = WeatherProvider().fetchWeatherForecast(
                     cityName: _cityName,
                     isCity: true,
                   );
