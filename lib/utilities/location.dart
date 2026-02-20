@@ -21,7 +21,7 @@ class Location {
       Position position = await Geolocator.getCurrentPosition(
         locationSettings: LocationSettings(
           accuracy: LocationAccuracy.low,
-          timeLimit: Duration(seconds: 5),
+          timeLimit: Duration(seconds: 15),
         ),
       );
 
