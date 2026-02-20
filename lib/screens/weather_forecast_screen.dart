@@ -1,11 +1,8 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:wheather_app/bloc/weather_bloc.dart';
 import 'package:wheather_app/bloc/weather_event.dart';
 import 'package:wheather_app/bloc/weather_state.dart';
-import 'package:wheather_app/services/weather_api_provider.dart';
-import 'package:wheather_app/model/weather_forecast_model.dart';
 import 'package:wheather_app/screens/city_screen.dart';
 import 'package:wheather_app/services/weather_repository.dart';
 import 'package:wheather_app/widgets/bottom_list_view.dart';
