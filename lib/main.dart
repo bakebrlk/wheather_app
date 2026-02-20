@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wheather_app/screens/weather_forecast_screen.dart';
+import 'package:wheather_app/screens/location_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Weather',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: WeatherForecastScreen(),
+      home: LocationScreen(),
     );
   }
 }
